@@ -2,15 +2,15 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useState } from "react";
+import { useState } from "react";
 import { CiCreditCard1 } from "react-icons/ci";
-import { HiRefresh } from "react-icons/hi";
 import {
   IoHomeOutline,
   IoSettingsOutline,
   IoWalletOutline,
 } from "react-icons/io5";
 import { TbTransactionEuro } from "react-icons/tb";
+import SignOut from "./SignOut";
 
 const navLinks = [
   {
@@ -59,6 +59,9 @@ const SideNavigation = () => {
             </Link>
           </li>
         ))}
+        <li className="absolute bottom-10 w-full px-8 left-0 right-0 mx-auto ">
+          <SignOut />
+        </li>
       </ul>
     </nav>
   );
