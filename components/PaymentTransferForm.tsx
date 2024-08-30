@@ -20,6 +20,7 @@ import { Textarea } from "./ui/textarea";
 import { LuLoader2 } from "react-icons/lu";
 import { useRouter, useSearchParams } from "next/navigation";
 import { createTransaction } from "@/lib/bank.actions";
+import toast from "react-hot-toast";
 
 const formSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -40,11 +41,11 @@ const PaymentTransferForm = ({
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: "",
+      email: "test@test.com",
       note: "",
-      amount: "",
+      amount: "10",
       senderBank: "1",
-      accountId: "",
+      accountId: "01010101",
     },
   });
 
@@ -62,11 +63,15 @@ const PaymentTransferForm = ({
       };
 
       const newTransaction = await createTransaction(transaction);
+
+      toast.success("Funds have been successfully transferred!");
+
       if (newTransaction) {
         form.reset();
         router.push("/");
       }
     } catch (error) {
+      toast.error("This didn't work.");
       console.error("Submitting create transfer request failed: ", error);
     }
     setIsLoading(false);

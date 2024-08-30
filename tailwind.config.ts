@@ -67,24 +67,21 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        shimmer: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        shimmer: "shimmer 1.5s infinite",
+        spin: "spin 1s linear infinite", // Including default Tailwind CSS spin animation
       },
       fontFamily: {
         inter: "var(--font-inter)",
         lato: "var(--font-lato)",
       },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-      },
-    },
-    keyframes: {
-      shimmer: {
-        "0%": { transform: "translateX(-100%)" },
-        "100%": { transform: "translateX(100%)" },
-      },
-    },
-    animation: {
-      shimmer: "shimmer 1.5s infinite",
     },
   },
   plugins: [require("tailwindcss-animate")],

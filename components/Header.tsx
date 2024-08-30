@@ -1,9 +1,7 @@
-import Link from "next/link";
-import React from "react";
-import { IoMdNotificationsOutline } from "react-icons/io";
-import DarkModeToggle from "./DarkModeToggle";
 import { createClient } from "@/utils/supabase/server";
-import { redirect } from "next/navigation";
+import Link from "next/link";
+import { FaGithub } from "react-icons/fa";
+import DarkModeToggle from "./DarkModeToggle";
 import ProfileAvatar from "./ProfileAvatar";
 
 const Header = async () => {
@@ -23,9 +21,14 @@ const Header = async () => {
             <DarkModeToggle />
           </li>
           <li>
-            <button className="text-2xl flex items-center">
-              <IoMdNotificationsOutline />
-            </button>
+            <Link
+              className="text-2xl flex items-center"
+              href="https://github.com/hakanyorukk"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub />
+            </Link>
           </li>
           <li>
             <p>|</p>

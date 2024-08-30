@@ -5,7 +5,6 @@ import { Button } from "./ui/button";
 import { GoSignOut } from "react-icons/go";
 import { signout } from "@/lib/user.actions";
 import { LuLoader2 } from "react-icons/lu";
-import { redirect } from "next/navigation";
 
 const SignOut = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -29,12 +28,12 @@ const SignOut = () => {
         {isLoading ? (
           <>
             <LuLoader2 size={15} className="animate-spin" /> &nbsp;
-            <span className="z-10 capitalize text-lg">Sign out...</span>
+            <span className="z-10 text-base">Sign out...</span>
           </>
         ) : (
           <>
             <GoSignOut className="mr-1" size={20} />
-            <span className="z-10 capitalize text-lg">Sign out</span>
+            <span className="z-10 text-base">Sign out</span>
           </>
         )}
       </div>

@@ -17,6 +17,7 @@ import { LuLoader2 } from "react-icons/lu";
 import { z } from "zod";
 import { Button } from "./ui/button";
 import { updatePassword } from "@/lib/user.actions";
+import toast from "react-hot-toast";
 
 const UpdatePasswordForm = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -39,8 +40,9 @@ const UpdatePasswordForm = () => {
       await updatePassword({
         password: data.password,
       });
-      console.log(data);
+      toast.success("Password successfully changed!");
     } catch (error) {
+      toast.error("Failed to update password. PLease try again.");
       console.log(error);
     } finally {
       setIsLoading(false);

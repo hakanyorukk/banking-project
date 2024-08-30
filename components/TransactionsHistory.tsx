@@ -41,7 +41,43 @@ const TransactionsHistory = ({ transactions }: TransactionsBoxProps) => {
             <TableCell>{t.status}</TableCell>
             <TableCell>{formatDateString(t.created_at)}</TableCell>
             <TableCell>{t.channel}</TableCell>
-            <TableCell>{t.category_name}</TableCell>
+            <TableCell
+              className={`font-semibold text-base ${
+                t.category_name === "Transaction"
+                  ? "dark:text-blue-300 text-blue-500"
+                  : ""
+              } ${
+                t.category_name === "Shopping"
+                  ? "dark:text-pink-300 text-pink-500"
+                  : ""
+              }${
+                t.category_name === "Travel"
+                  ? "dark:text-purple-300 text-purple-500"
+                  : ""
+              }${
+                t.category_name === "Utilities & Bills"
+                  ? "dark:text-violet-200 text-violet-500"
+                  : ""
+              }${
+                t.category_name === "Education"
+                  ? "dark:text-green-300 text-green-500"
+                  : ""
+              }${
+                t.category_name === "Health & Wellness"
+                  ? "dark:text-red-300 text-red-500"
+                  : ""
+              }${
+                t.category_name === "Food and Drink"
+                  ? "dark:text-orange-300 text-orange-500"
+                  : ""
+              } ${
+                t.category_name === "Entertainment"
+                  ? "dark:text-teal-300 text-teal-500"
+                  : ""
+              }`}
+            >
+              {t.category_name}
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>

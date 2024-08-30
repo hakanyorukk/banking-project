@@ -86,7 +86,6 @@ declare interface RightSideBarProps {
 declare interface CardProps {
   account: Account;
   user: User;
-  index: number;
 }
 
 declare type categoryBackgroundColors = {

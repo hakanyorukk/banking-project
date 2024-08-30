@@ -11,6 +11,7 @@ import { Button } from "./ui/button";
 import { LuLoader2 } from "react-icons/lu";
 import UpdateInput from "./UpdateInput";
 import { updateUser } from "@/lib/user.actions";
+import toast from "react-hot-toast";
 
 const UpdateUserForm = ({ user }: { user: User }) => {
   console.log(user.user_metadata.first_name);
@@ -40,8 +41,10 @@ const UpdateUserForm = ({ user }: { user: User }) => {
       await updateUser({
         user: data,
       });
+      toast.success("Profile successfully updated!");
       //console.log(data);
     } catch (error) {
+      toast.error("Failed to update profile. PLease try again.");
       console.log(error);
     } finally {
       setIsLoading(false);

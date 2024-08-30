@@ -60,7 +60,7 @@ type ButtonProps = {
 function Button({ filter, handleFilter, activeFilter, children }: ButtonProps) {
   return (
     <button
-      className={`hover:bg-cyan-500 px-5 py-2 font-medium rounded-[0.25rem] hover:text-slate-100 ${
+      className={`hover:bg-cyan-500 px-5 py-2 font-medium rounded-[0.25rem] hover:text-slate-100 transform duration-300 ease ${
         filter === activeFilter ? "bg-cyan-500 text-slate-100 " : ""
       }`}
       onClick={() => handleFilter(filter)}

@@ -4,18 +4,9 @@ import { formatAmount } from "@/lib/utils";
 import React, { useState } from "react";
 import { FaCcVisa } from "react-icons/fa";
 
-const Card = ({ account, user, index }: CardProps) => {
-  const [active, setActive] = useState(false);
-  //const zIndex = (-index + 3) * 10;
-  //const opacity = 1 - index * 0.1;
+const Card = ({ account, user }: CardProps) => {
   return (
-    <div
-      onClick={() => setActive(!active)}
-      //style={{ opacity }}
-      className={`mr-4 h-40 bg-gradient-to-tl from-cyan-200 to-sky-500 w-full rounded-2xl p-4 felx absolute z-10 left-0 top-${
-        index * 10
-      }  ${active === true ? "z-50" : "z-10 scale-95"} `}
-    >
+    <div className="h-40 bg-gradient-to-tl from-cyan-200 to-sky-500 w-full rounded-2xl p-4">
       <div className="flex justify-between items-center">
         <h2 className="text-lg font-semibold text-slate-200">
           {user.first_name} {user.last_name}

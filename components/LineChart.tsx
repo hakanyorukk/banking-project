@@ -57,12 +57,16 @@ const LineChart = ({
 
   const colors = isDarkMode
     ? {
+        expensesBorderColor: "#ef4444", // Red for expenses
+        incomesBorderColor: "#22c55e",
         borderColor: "#22d3ee",
         backgroundColor: "#002079",
         labelColor: "#f8fafc",
         gridColor: "#334155",
       }
     : {
+        expensesBorderColor: "#dc2626",
+        incomesBorderColor: "#16a34a",
         borderColor: "rgb(75, 192, 192)",
         backgroundColor: "#04aabd",
         labelColor: "#0f172a",
@@ -74,15 +78,33 @@ const LineChart = ({
   );
 
   const totalAmount = calculateMonthlyTotals(transactions);
+  const totalExpenses = calculateMonthlyTotals(transactionsExpenses);
+  const totalIncomes = calculateMonthlyTotals(transactionsIncomes);
   const sorteduniqueMonths = sortMonthNames(uniqueMonths);
 
   const data = {
     labels: sorteduniqueMonths,
     datasets: [
+      // {
+      //   label: "Expense:",
+      //   data: totalAmount.reverse(),
+      //   borderColor: colors.borderColor,
+      //   backgroundColor: colors.backgroundColor,
+      //   tension: 0.4,
+      //   fill: "start",
+      // },
       {
-        label: "Expense:",
-        data: totalAmount.reverse(),
-        borderColor: colors.borderColor,
+        label: "Expenses",
+        data: totalExpenses.reverse(),
+        borderColor: colors.expensesBorderColor,
+        backgroundColor: colors.backgroundColor,
+        tension: 0.4,
+        fill: "start",
+      },
+      {
+        label: "Incomes",
+        data: totalIncomes.reverse(),
+        borderColor: colors.incomesBorderColor,
         backgroundColor: colors.backgroundColor,
         tension: 0.4,
         fill: "start",

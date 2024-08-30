@@ -56,6 +56,7 @@ export const getTransactionsAllExpenses = async ({
     const { data, error } = await supabase
       .from("transactions")
       .select("*")
+      .order("created_at", { ascending: false })
       .eq("transaction_type", "Expense")
       .eq("user_id", userId);
 
@@ -76,6 +77,7 @@ export const getTransactionsAllIncomes = async ({
     const { data, error } = await supabase
       .from("transactions")
       .select("*")
+      .order("created_at", { ascending: false })
       .eq("transaction_type", "Income")
       .eq("user_id", userId);
 
