@@ -13,6 +13,8 @@ declare type User = {
   created_at: string;
   first_name: string;
   last_name: string;
+  phone: string;
+  state: string;
   address: string;
   city: string;
   date_of_birth: string;
@@ -26,6 +28,8 @@ declare type UserMetada = {
   first_name: string;
   last_name: string;
   address: string;
+  phone: string;
+  state: string;
   city: string;
   date_of_birth: string;
   postal_code: string;
@@ -50,10 +54,13 @@ declare type Transactions = {
   status: string;
   user_id: string;
   category_name: string;
+  transaction_type: string;
 };
 
 declare interface TransactionsBoxProps {
   transactions: Transactions[];
+  transactionsExpenses: Transactions[];
+  transactionsIncomes: Transactions[];
 }
 
 declare interface TotalBalanceBoxProps {
@@ -68,10 +75,6 @@ declare interface MonthlyAnalysisBoxProps {
 
 declare interface DoughnutChartProps {
   accounts: Account[];
-}
-
-declare interface LineChartProps {
-  transactions: Transactions[];
 }
 
 declare interface RightSideBarProps {
@@ -99,6 +102,24 @@ declare type categoryBackgroundColors = {
 declare type signInProps = { email: string; password: string };
 
 declare type signUpProps = { email: string; password: string; userData: User };
+
+declare type PaymentTransferFormProps = {
+  accounts: Account[];
+  userId: string;
+};
+
+declare interface BankDropdownProps {
+  accounts: Account[];
+  setValue?: UseFormSetValue<any>;
+  otherStyles?: string;
+}
+
+declare interface CreateTransactionProps {
+  userId: string;
+  amount: string;
+  senderBank: string;
+  reciverEmail: string;
+}
 
 // declare type CategoryCount = {
 //   name: string;

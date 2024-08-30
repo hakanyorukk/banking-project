@@ -1,5 +1,6 @@
 import UpdatePasswordForm from "@/components/UpdatePasswordForm";
 import UpdateUserForm from "@/components/UpdateUserForm";
+import { formatDateString } from "@/lib/utils";
 import { createClient } from "@/utils/supabase/server";
 
 import { Metadata } from "next";
@@ -12,18 +13,29 @@ export const metadata: Metadata = {
 const page = async () => {
   const supabase = createClient();
   const { data, error } = await supabase.auth.getUser();
+  const last_sign_in = formatDateString(data?.user?.last_sign_in_at || "");
+
   return (
-    <section className="flex flex-col gap-12 text-slate-700 dark:text-slate-50 mt-10 px-4 mx-auto h-screen">
-      <div className="max-w-[120rem] mx-auto flex flex-col gap-6">
-        <h2 className="text-4xl font-semibold">Update your account</h2>
-        {data?.user && (
-          <div className="flex rounded-[0.5rem] dark:bg-slate-800 bg-slate-50 dark:border-slate-700 border-slate-200 border-2 mb-8">
-            <UpdateUserForm user={data.user} />
+    <section className="flex flex-col text-slate-700 dark:text-slate-50 p-6 h-full">
+      <div className="dark:bg-slate-800 bg-slate-50 dark:border-slate-700 border-slate-200 flex flex-col p-6 rounded-[.5rem]">
+        <div className="max-w-[70rem]">
+          <div className="flex justify-between pb-4 border-b dark:border-slate-600 border-slate-200">
+            <h2 className="text-2xl font-semibold ">Update your account</h2>
+            <p className="flex place-items-center text-sm">
+              Last sign in at {last_sign_in}
+            </p>
           </div>
-        )}
-        <h2 className="text-4xl font-semibold">Update your password</h2>
-        <div className="flex rounded-[0.5rem] dark:bg-slate-800 bg-slate-50 dark:border-slate-700 border-slate-200 border-2  ">
-          <UpdatePasswordForm />
+          {data?.user && (
+            <div className="fle dark:border-slate-700 border-slate-200 mb-6">
+              <UpdateUserForm user={data.user} />
+            </div>
+          )}
+          <h2 className="text-2xl font-semibold border-b dark:border-slate-600 border-slate-200 pb-4">
+            Update your password
+          </h2>
+          <div className="flex">
+            <UpdatePasswordForm />
+          </div>
         </div>
       </div>
     </section>

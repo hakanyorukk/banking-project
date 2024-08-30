@@ -13,6 +13,12 @@ export function getCumulativeTotal(accounts: Account[]): number {
   }, 0);
 }
 
+export function getCumulativeMonthly(transaction: Transactions[]): number {
+  return transaction.reduce((total, transaction) => {
+    return total + transaction.amount;
+  }, 0);
+}
+
 export function formatAmount(amount: number): string {
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -26,7 +32,7 @@ export function formatAmount(amount: number): string {
 export function formatDateString(dateString: string): string {
   const date = new Date(dateString);
 
-  return format(date, "EEE, MMM d, h:mm a");
+  return format(date, "EEEE, MMM d, HH:mm ");
   //EEE=> day of the week
   //mmm=> month name
   //d => day
@@ -82,7 +88,12 @@ export function calculateMonthlyTotals(transactions: Transactions[]): number[] {
   //return Object.values(monthlyTotals);
 }
 
-export const PAGE_SIZE = 13;
+export const PAGE_SIZE = 12;
+
+const today = new Date();
+export const thirtyDaysAgo = new Date(
+  today.setDate(today.getDate() - 30)
+).toISOString();
 
 export const SignupFormSchema = (type: string) =>
   z.object({
@@ -116,6 +127,11 @@ export const UpdateFormSchema = (type: string) =>
         type === "account" ? z.string().optional() : z.string().min(3).max(6),
       date_of_birth:
         type === "account" ? z.string().optional() : z.string().min(3),
+      phone:
+        type === "account"
+          ? z.string().optional()
+          : z.string().regex(/^\+?[\d\s()-]+$/, "Invalid phone number format"),
+      state: type === "account" ? z.string().optional() : z.string().min(3),
       password: type === "password" ? z.string().min(6) : z.string().optional(),
       passwordConfirm:
         type === "password" ? z.string().min(6) : z.string().optional(),

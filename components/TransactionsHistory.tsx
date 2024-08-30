@@ -27,7 +27,17 @@ const TransactionsHistory = ({ transactions }: TransactionsBoxProps) => {
             className="border-slate-200 dark:border-slate-700 text-md"
           >
             <TableCell>{t.transaction_name}</TableCell>
-            <TableCell>{formatAmount(t.amount)}</TableCell>
+            <TableCell>
+              {t.transaction_type === "Expense" ? (
+                <div className="expense-color text-lg">
+                  - {formatAmount(t.amount)}
+                </div>
+              ) : (
+                <div className="income-color text-lg">
+                  {formatAmount(t.amount)}
+                </div>
+              )}
+            </TableCell>
             <TableCell>{t.status}</TableCell>
             <TableCell>{formatDateString(t.created_at)}</TableCell>
             <TableCell>{t.channel}</TableCell>

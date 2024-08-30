@@ -50,20 +50,20 @@ const UpdatePasswordForm = () => {
   return (
     <>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="p-8">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="w-[50%] ">
           <FormField
             control={form.control}
             name="password"
             render={({ field }) => (
-              <div className="flex  flex-grow place-items-center  w-full py-4 pr-12 ">
-                <FormLabel className="text-xl flex w-[17rem]">
+              <div className="flex flex-grow place-items-center w-full py-4">
+                <FormLabel className="text-lg flex mr-4  basis-3/5">
                   New Password
                 </FormLabel>
                 <div className="flex flex-col w-full">
                   <FormControl>
                     <Input
                       placeholder="Enter new password"
-                      className="text-xl dark:text-slate-300 text-slate-600  focus:text-slate-100 rounded-[.25rem] inline-block h-full max-w-[30rem]"
+                      className="form-input text-lg"
                       type="password"
                       {...field}
                     />
@@ -78,15 +78,15 @@ const UpdatePasswordForm = () => {
             control={form.control}
             name="passwordConfirm"
             render={({ field }) => (
-              <div className="flex flex-grow place-items-center  w-full py-4 pr-12 ">
-                <FormLabel className="text-xl flex w-[17rem]">
+              <div className="flex flex-grow place-items-center  w-full py-4 ">
+                <FormLabel className="text-lg flex mr-4 basis-3/5 ">
                   Confirm Password
                 </FormLabel>
                 <div className="flex flex-col w-full">
                   <FormControl>
                     <Input
                       placeholder="Enter confirm password"
-                      className="dark:text-slate-300 text-slate-600  text-xl  focus:text-slate-100 rounded-[.25rem] inline-block h-full max-w-[30rem]"
+                      className="form-input text-lg"
                       type="password"
                       {...field}
                     />

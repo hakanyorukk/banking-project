@@ -27,7 +27,7 @@
   }
 
   .box-title {
-    @apply text-3xl font-medium pb-4 pt-2;
+    @apply text-2xl font-medium pb-4 pt-2;
   }
 
   .box-style {
@@ -36,5 +36,17 @@
 
   .form-button {
     @apply text-lg bg-cyan-500 rounded-[.25rem] after:-z-10 z-10 mt-4 overflow-hidden relative hover:bg-cyan-500 after:absolute after:w-full after:content-[''] after:h-full after:origin-[0%_100%] after:scale-x-100 after:scale-y-0 after:left-0 after:bottom-0 after:bg-cyan-700 hover:after:scale-x-100  hover:after:scale-y-100 after:transform transition-transform after:duration-300 after:ease-in-out after:delay-300;
+  }
+
+  .form-input {
+    @apply rounded-[.5rem] text-slate-500 dark:text-slate-200 dark:border-slate-500 border-slate-200 bg-slate-100 dark:bg-slate-900;
+  }
+
+  .expense-color {
+    @apply text-red-600 dark:text-red-300;
+  }
+
+  .income-color {
+    @apply text-green-600 dark:text-green-300;
   }
 }

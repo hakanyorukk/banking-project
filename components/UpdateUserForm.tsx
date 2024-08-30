@@ -23,9 +23,11 @@ const UpdateUserForm = ({ user }: { user: User }) => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       email: user.email,
+      phone: user.user_metadata.phone,
       first_name: user.user_metadata.first_name,
       last_name: user.user_metadata.last_name,
       address: user.user_metadata.address,
+      state: user.user_metadata.state,
       postal_code: user.user_metadata.postal_code,
       date_of_birth: user.user_metadata.date_of_birth,
       city: user.user_metadata.city,
@@ -48,7 +50,10 @@ const UpdateUserForm = ({ user }: { user: User }) => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="px-12">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="border-b dark:border-slate-600 border-slate-200 w-full"
+      >
         <UpdateInput
           control={form.control}
           name="email"
@@ -56,7 +61,7 @@ const UpdateUserForm = ({ user }: { user: User }) => {
           placeholder="Enter your email"
           disabled={true}
         />
-        <div className="flex">
+        <div className="flex gap-14">
           <UpdateInput
             control={form.control}
             name="first_name"
@@ -72,23 +77,17 @@ const UpdateUserForm = ({ user }: { user: User }) => {
         </div>
         <UpdateInput
           control={form.control}
-          name="city"
-          label="City"
-          placeholder="Enter your city"
-        />
-        <UpdateInput
-          control={form.control}
-          name="address"
-          label="Address"
-          placeholder="Enter your specific address"
+          name="date_of_birth"
+          label="Date of Birth"
+          placeholder="YYYY-MM-DD"
         />
 
-        <div className="flex">
+        <div className="flex gap-14">
           <UpdateInput
             control={form.control}
-            name="date_of_birth"
-            label="Date of Birth"
-            placeholder="YYYY-MM-DD"
+            name="state"
+            label="State"
+            placeholder="Enter the state name"
           />
           <UpdateInput
             control={form.control}
@@ -98,7 +97,29 @@ const UpdateUserForm = ({ user }: { user: User }) => {
           />
         </div>
 
-        <div className="flex gap-4 items-center justify-end mx-10 my-4">
+        <UpdateInput
+          control={form.control}
+          name="phone"
+          label="Phone Number"
+          placeholder="Enter your phone number"
+        />
+
+        <div className="flex gap-14">
+          <UpdateInput
+            control={form.control}
+            name="city"
+            label="City"
+            placeholder="Enter your city"
+          />
+          <UpdateInput
+            control={form.control}
+            name="address"
+            label="Address"
+            placeholder="Enter your specific address"
+          />
+        </div>
+
+        <div className="flex gap-4 items-center justify-end my-3">
           <Button
             type="reset"
             className="text-lg rounded-[.25rem] mt-4 hover:border-2 focus:border-2"

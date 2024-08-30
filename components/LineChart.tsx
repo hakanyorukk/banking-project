@@ -29,7 +29,11 @@ import {
 } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
-const LineChart = ({ transactions = [] }: LineChartProps) => {
+const LineChart = ({
+  transactions = [],
+  transactionsExpenses = [],
+  transactionsIncomes = [],
+}: TransactionsBoxProps) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
@@ -71,10 +75,6 @@ const LineChart = ({ transactions = [] }: LineChartProps) => {
 
   const totalAmount = calculateMonthlyTotals(transactions);
   const sorteduniqueMonths = sortMonthNames(uniqueMonths);
-
-  console.log(sorteduniqueMonths);
-  console.log(uniqueMonths);
-  console.log(totalAmount);
 
   const data = {
     labels: sorteduniqueMonths,

@@ -1,9 +1,18 @@
+import { formatAmount } from "@/lib/utils";
 import React from "react";
+import AnimatedCounter from "./AnimatedCounter";
 
-const ExpensesMonth = () => {
+const ExpensesMonth = ({
+  totalExpenseMonth,
+}: {
+  totalExpenseMonth: number;
+}) => {
   return (
-    <div className="box-style h-60 w-full basis-1/2">
-      <h2 className="box-title">Expenses this month</h2>
+    <div className="box-style flex flex-col h-48 w-full basis-1/3 place-items-center">
+      <h2 className="box-title mt-4">Expenses this month</h2>
+      <p className="text-4xl font-bold expense-color">
+        <AnimatedCounter amount={totalExpenseMonth} />
+      </p>
     </div>
   );
 };

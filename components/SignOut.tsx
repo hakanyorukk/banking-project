@@ -25,15 +25,15 @@ const SignOut = () => {
   //{isLoading ? (): ("Sign out")}
   return (
     <Button className="signout justify-start" onClick={() => handleSignout()}>
-      <div className="flex gap-2 items-center text-xl font-medium z-10">
+      <div className="flex gap-1 items-center text-xl font-medium z-10">
         {isLoading ? (
           <>
-            <LuLoader2 size={18} className="animate-spin" /> &nbsp;
+            <LuLoader2 size={15} className="animate-spin" /> &nbsp;
             <span className="z-10 capitalize text-lg">Sign out...</span>
           </>
         ) : (
           <>
-            <GoSignOut />
+            <GoSignOut className="mr-1" size={20} />
             <span className="z-10 capitalize text-lg">Sign out</span>
           </>
         )}

@@ -29,6 +29,7 @@ const PaginationBox = ({ totalPages }: { totalPages: number }) => {
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious
+            className="cursor-pointer"
             onClick={() => handlePage(activePage === 1 ? 1 : activePage - 1)}
           />
         </PaginationItem>
@@ -38,6 +39,11 @@ const PaginationBox = ({ totalPages }: { totalPages: number }) => {
           return (
             <PaginationItem key={page}>
               <PaginationLink
+                className={`cursor-pointer ${
+                  activePage === page
+                    ? "dark:bg-cyan-800 bg-cyan-300 border-none"
+                    : ""
+                } `}
                 onClick={() => handlePage(page)}
                 isActive={page === activePage}
               >
@@ -49,6 +55,7 @@ const PaginationBox = ({ totalPages }: { totalPages: number }) => {
 
         <PaginationItem>
           <PaginationNext
+            className="cursor-pointer"
             onClick={() =>
               handlePage(
                 activePage === totalPages ? activePage : activePage + 1

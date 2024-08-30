@@ -7,10 +7,15 @@ import RecentTransactionBox from "@/components/RecentTransactionBox";
 import {
   getAccountsInfo,
   getTransactionsAll,
+  getTransactionsAllExpenses,
+  getTransactionsAllIncomes,
+  getTransactionsExpense,
+  getTransactionsIncomes,
   getTransactionsRecent,
 } from "@/lib/bank.actions";
-import { getCumulativeTotal } from "@/lib/utils";
+import { getCumulativeMonthly, getCumulativeTotal } from "@/lib/utils";
 import RightSideBar from "@/components/RightSideBar";
+import IncomesMonth from "@/components/IncomesMonth";
 
 export default async function PrivatePage() {
   const supabase = createClient();
@@ -20,12 +25,21 @@ export default async function PrivatePage() {
     redirect("/login");
   }
   const userID = data.user.id;
- // console.log(data.user.user_metadata);
+  // console.log(data.user.user_metadata);
 
+  const expensesLast30 = await getTransactionsExpense({ userId: userID });
+  const incomesLast30 = await getTransactionsIncomes({ userId: userID });
+  const totalExpenseMonth = await getCumulativeMonthly(expensesLast30 || []);
+  const totatlIncomesMonth = await getCumulativeMonthly(incomesLast30 || []);
   const accountData = await getAccountsInfo({ userId: userID });
-  //console.log(accountData);
-
   const transactionsHistoryAll = await getTransactionsAll({
+    userId: userID,
+  });
+
+  const transactionsHistoryAllExpenses = await getTransactionsAllExpenses({
+    userId: userID,
+  });
+  const transactionsHistoryAllIncomes = await getTransactionsAllIncomes({
     userId: userID,
   });
 
@@ -55,10 +69,17 @@ export default async function PrivatePage() {
               totalCurrentBalance={totalCurrentBalance}
               accounts={accountData as Account[]}
             />
-            <ExpensesMonth />
+            <IncomesMonth totatlIncomesMonth={totatlIncomesMonth} />
+            <ExpensesMonth totalExpenseMonth={totalExpenseMonth} />
           </div>
           <MoneyAnalytics
             transactions={transactionsHistoryAll as Transactions[]}
+            transactionsExpenses={
+              transactionsHistoryAllExpenses as Transactions[]
+            }
+            transactionsIncomes={
+              transactionsHistoryAllIncomes as Transactions[]
+            }
           />
           <RecentTransactionBox
             transactions={transactionsHistoryRecent as Transactions[]}
@@ -71,11 +92,7 @@ export default async function PrivatePage() {
           transactions={transactionsHistoryAll as Transactions[]}
           accounts={accountData as Account[]}
         />
-  
       </div>
     </section>
   );
 }
-
-
-

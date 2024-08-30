@@ -13,7 +13,7 @@ export default async function RootLayout({
       <SideBar />
       <div className="flex flex-col h-full w-full">
         <Header />
-        <div className="flex-grow">{children}</div>
+        <div className="">{children}</div>
       </div>
     </main>
   );
