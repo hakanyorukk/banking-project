@@ -10,7 +10,7 @@ const RecentTransactionBox = ({
 }: TransactionsBoxProps) => {
   return (
     <section className="box-style h-fit">
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex place-items-center justify-between mb-6">
         <h2 className="box-title">Recent Transactions</h2>
         <Link
           href="/transaction-history"

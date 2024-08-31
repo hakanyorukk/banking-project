@@ -16,13 +16,13 @@ const Header = async () => {
   //   return redirect("/login");
   // }
   return (
-    <div className="flex h-fit w-full border-b border-color bg-slate-50 dark:bg-slate-800 dark:text-slate-200 sticky top-0 z-50 justify-between">
-      <div className="justify-start flex xl:hidden px-8 ">
+    <div className="flex h-fit w-full border-b border-color bg-slate-50 dark:bg-slate-800 dark:text-slate-200 sticky top-0 z-50 justify-between py-3 ">
+      <div className="justify-start place-items-center flex xl:hidden px-8 ">
         <MobileNav />
       </div>
       <nav className="flex w-full justify-end">
-        <ul className="flex gap-8 mr-10 items-center sm:text-2xl text-xl font-light py-2 ">
-          <li>
+        <ul className="flex sm:gap-8 gap-3.5 sm:mr-10 mr-4 items-center font-light ">
+          <li className="p-1 sm:text-2xl text-[1.35rem]">
             <DarkModeToggle />
           </li>
           <li>

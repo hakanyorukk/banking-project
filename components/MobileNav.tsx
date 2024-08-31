@@ -60,7 +60,7 @@ const MobileNav = () => {
     <section>
       <Sheet>
         <SheetTrigger>
-          <RxHamburgerMenu className="text-xl flex justify-center place-items-center my-3" />
+          <RxHamburgerMenu className="text-2xl flex justify-center place-items-center " />
         </SheetTrigger>
         <SheetContent
           side="left"
@@ -72,7 +72,7 @@ const MobileNav = () => {
             </SheetTitle>
 
             <SheetClose asChild>
-              <nav className="p-4 text-xs md:text-base 2xl:text-xl ">
+              <nav className="px-0 py-3 mx-0 text-xs md:text-base 2xl:text-xl ">
                 <ul className="flex flex-col sm:gap-4 gap-2">
                   {navLinks.map((item) => {
                     const isActive =

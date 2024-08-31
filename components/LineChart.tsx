@@ -104,7 +104,7 @@ const LineChart = ({
     ],
   };
   return (
-    <div className="flex w-full h-64 p-4">
+    <div className="flex w-full h-64  p-0 sm:p-4">
       <Line
         data={data}
         options={{
@@ -128,7 +128,7 @@ const LineChart = ({
               ticks: {
                 color: colors.labelColor,
                 font: {
-                  size: 16,
+                  size: 14,
                 },
               },
             },
@@ -136,7 +136,7 @@ const LineChart = ({
               ticks: {
                 color: colors.labelColor,
                 font: {
-                  size: 18,
+                  size: 14,
                 },
               },
               grid: {
