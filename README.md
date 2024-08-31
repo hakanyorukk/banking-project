@@ -9,7 +9,7 @@ A comprehensive bank management system built with Next.js, TypeScript, Supabase,
 #### Dark Mode: Toggle between light and dark themes.
 #### Form Validation: Robust form validation using Zod and React Hook Form for user input management and error handling.
 #### Account Management: View and manage multiple bank accounts.
-#### Transaction History: Access detailed transaction history for all accounts.
+#### Transaction History: Access detailed transaction history with pagination and filtering.
 #### Fund Transfers: Transfer funds between accounts.
 #### Settings: Update user profile and preferences.
 
