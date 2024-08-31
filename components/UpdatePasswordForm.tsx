@@ -52,20 +52,23 @@ const UpdatePasswordForm = () => {
   return (
     <>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="w-[50%] ">
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="sm:w-[50%] w-full"
+        >
           <FormField
             control={form.control}
             name="password"
             render={({ field }) => (
               <div className="flex flex-grow place-items-center w-full py-4">
-                <FormLabel className="text-lg flex mr-4  basis-3/5">
+                <FormLabel className="sm:text-lg text-xs flex mr-4  basis-3/5">
                   New Password
                 </FormLabel>
                 <div className="flex flex-col w-full">
                   <FormControl>
                     <Input
                       placeholder="Enter new password"
-                      className="form-input text-lg"
+                      className="form-input sm:text-lg text-xs w-full"
                       type="password"
                       {...field}
                     />
@@ -81,14 +84,14 @@ const UpdatePasswordForm = () => {
             name="passwordConfirm"
             render={({ field }) => (
               <div className="flex flex-grow place-items-center  w-full py-4 ">
-                <FormLabel className="text-lg flex mr-4 basis-3/5 ">
+                <FormLabel className="sm:text-lg text-xs  flex mr-4 basis-3/5 ">
                   Confirm Password
                 </FormLabel>
                 <div className="flex flex-col w-full">
                   <FormControl>
                     <Input
                       placeholder="Enter confirm password"
-                      className="form-input text-lg"
+                      className="form-input sm:text-lg text-xs"
                       type="password"
                       {...field}
                     />

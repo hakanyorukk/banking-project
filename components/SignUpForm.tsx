@@ -41,13 +41,13 @@ const SignUpForm = ({ type }: { type: string }) => {
         city: data.city!,
         date_of_birth: data.date_of_birth!,
         postal_code: data.postal_code!,
-        phone: "", // Add the missing 'phone' property
-        state: "", // Add the missing 'state' property
-        email: "", // Add the missing 'email' property
-        userId: "", // Add the missing 'userId' property
-        created_at: "", // Add the missing 'created_at' property
-        password: "", // Add the missing 'password' property
-        user_metadata: {} as UserMetadata, // Update the 'user_metadata' property to match the 'UserMetadata' type
+        phone: "",
+        state: "",
+        email: "",
+        userId: "",
+        created_at: "",
+        password: "",
+        user_metadata: {} as UserMetadata,
       };
       // const userData = {
       //   first_name: data.first_name!,

@@ -6,8 +6,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="flex min-h-screen w-full  font-inter">
-      <div className="basis-1/2 bg-gradient-to-tr from-teal-700 to-indigo-950">
+    <main className="flex min-h-screen w-full font-inter">
+      <div className="basis-1/2 bg-gradient-to-tr from-teal-700 to-indigo-950 hidden xl:block">
         <div className="mt-16">
           <Logo />
         </div>

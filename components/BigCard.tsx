@@ -4,7 +4,7 @@ import { FaCcVisa } from "react-icons/fa";
 
 const BigCard = ({ account, user }: CardProps) => {
   return (
-    <div className="flex flex-col justify-between h-60 bg-gradient-to-tl from-cyan-200 to-sky-500 w-96 rounded-2xl p-6 shadow-2xl shadow-slate-600 dark:shadow-slate-500">
+    <div className="flex flex-col justify-between sm:h-60 h-48  bg-gradient-to-tl from-cyan-200 to-sky-500 sm:w-96 w-full rounded-2xl p-6 shadow-2xl shadow-slate-600 dark:shadow-slate-500">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-semibold text-slate-200">
           {user.first_name} {user.last_name}

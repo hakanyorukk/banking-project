@@ -13,6 +13,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import { login } from "@/app/(auth)/login/action";
+import toast from "react-hot-toast";
 
 const SignInForm = ({ type }: { type: string }) => {
   const formSchema = SignupFormSchema(type);
@@ -34,12 +35,17 @@ const SignInForm = ({ type }: { type: string }) => {
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     setIsLoading(true);
     try {
-      await login({
+      const result = await login({
         email: data.email,
         password: data.password,
       });
+      if (result && result.message) {
+        toast.error(result.message);
+      } else {
+        toast.success("Login successful!");
+      }
     } catch (error) {
-      console.log(error);
+      toast.error("Error");
     } finally {
       setIsLoading(false);
     }

@@ -38,8 +38,8 @@ const page = async ({ searchParams }: { searchParams: any }) => {
   const totalPages = Math.ceil((transactions?.length ?? 0) / PAGE_SIZE);
 
   return (
-    <section className="mx-14 mt-6 mb-4 overflow-y-hidden">
-      <div className="flex items-center justify-between mb-2">
+    <section className="md:mx-14 mx-4 mt-6 mb-4 overflow-y-hidden">
+      <div className="flex md:flex-row flex-col items-center justify-between mb-2">
         <h2 className="box-title">Transactions History</h2>
         <Filter />
       </div>

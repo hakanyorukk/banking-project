@@ -54,7 +54,7 @@ const PaymentTransferForm = ({
     setIsLoading(true);
 
     try {
-      console.log(data);
+      //console.log(data);
       const transaction = {
         reciverEmail: data.email,
         amount: data.amount,
@@ -84,22 +84,17 @@ const PaymentTransferForm = ({
           control={form.control}
           name="senderBank"
           render={() => (
-            <FormItem className="flex border-b dark:border-slate-600 border-slate-200 py-4">
+            <FormItem className="flex md:flex-row flex-col border-b dark:border-slate-600 border-slate-200 py-4">
               <div className=" basis-2/5 mr-8">
                 <FormLabel className="text-lg font-medium">
                   Select Source Bank
                 </FormLabel>
-                <FormDescription className="text-md">
+                <FormDescription className="sm:text-base text-sm">
                   Select the bank account you want to transfer funds from
                 </FormDescription>
               </div>
 
               <FormControl>
-                {/* <Input
-                  placeholder="shadcn"
-                  {...field}
-                  className="rounded-[.5rem] text-slate-500 dark:text-slate-200"
-                /> */}
                 <BankDropdown
                   accounts={accounts || []}
                   setValue={form.setValue}
@@ -114,12 +109,12 @@ const PaymentTransferForm = ({
           control={form.control}
           name="note"
           render={({ field }) => (
-            <FormItem className="flex border-b dark:border-slate-600 border-slate-200 py-4">
+            <FormItem className="flex md:flex-row flex-col border-b dark:border-slate-600 border-slate-200 py-4">
               <div className="basis-2/5 mr-8">
                 <FormLabel className="text-lg">
                   Transfer Note (Optional)
                 </FormLabel>
-                <FormDescription className="text-md">
+                <FormDescription className="sm:text-base text-sm">
                   Please provide any additional information or instructions
                   related to the transfer
                 </FormDescription>
@@ -128,7 +123,7 @@ const PaymentTransferForm = ({
               <FormControl>
                 <Textarea
                   placeholder="Write a short note here"
-                  className="form-input"
+                  className="form-input sm:text-base text-xs"
                   {...field}
                 />
               </FormControl>
@@ -138,8 +133,12 @@ const PaymentTransferForm = ({
           )}
         />
         <div className="py-4 border-b dark:border-slate-600 border-slate-200 ">
-          <h2 className="text-3xl font-bold py-2">Bank account details</h2>
-          <p>Enter the bank account details of the recipient</p>
+          <h2 className="sm:text-3xl text-xl font-bold py-2">
+            Bank account details
+          </h2>
+          <p className="md:text-lg text-sm">
+            Enter the bank account details of the recipient
+          </p>
         </div>
 
         <FormField
@@ -148,7 +147,7 @@ const PaymentTransferForm = ({
           render={({ field }) => (
             <FormItem className="flex border-b dark:border-slate-600 border-slate-200 py-4">
               <div className="basis-2/5 mr-8 flex items-center ">
-                <FormLabel className="text-lg ">
+                <FormLabel className="md:text-lg text-xs ">
                   Recipient&apos;s Email Address
                 </FormLabel>
               </div>
@@ -156,7 +155,7 @@ const PaymentTransferForm = ({
               <FormControl>
                 <Input
                   placeholder="ex: test@test.com"
-                  className="form-input focus:bg-slate-900"
+                  className="form-input  sm:text-base text-xs"
                   {...field}
                 />
               </FormControl>
@@ -172,7 +171,7 @@ const PaymentTransferForm = ({
           render={({ field }) => (
             <FormItem className="flex border-b dark:border-slate-600 border-slate-200 py-4">
               <div className="basis-2/5 mr-8 flex items-center ">
-                <FormLabel className="text-lg ">
+                <FormLabel className="md:text-lg text-xs">
                   Recipient&apos;s Bank Account Number
                 </FormLabel>
               </div>
@@ -180,7 +179,7 @@ const PaymentTransferForm = ({
               <FormControl>
                 <Input
                   placeholder="Enter the account number"
-                  className="form-input"
+                  className="form-input  sm:text-base text-xs"
                   {...field}
                 />
               </FormControl>
@@ -196,14 +195,14 @@ const PaymentTransferForm = ({
           render={({ field }) => (
             <FormItem className="flex border-b dark:border-slate-600 border-slate-200 py-4">
               <div className="basis-2/5 mr-8 flex items-center ">
-                <FormLabel className="text-lg ">Amount</FormLabel>
+                <FormLabel className="md:text-lg text-xs">Amount</FormLabel>
               </div>
 
               <FormControl>
                 <Input
                   type="number"
                   placeholder="ex: 15.00"
-                  className="form-input"
+                  className="form-input sm:text-base text-xs"
                   {...field}
                 />
               </FormControl>

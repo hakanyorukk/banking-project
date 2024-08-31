@@ -16,6 +16,7 @@ import {
 import { getCumulativeMonthly, getCumulativeTotal } from "@/lib/utils";
 import RightSideBar from "@/components/RightSideBar";
 import IncomesMonth from "@/components/IncomesMonth";
+import MobileTopCategories from "@/components/MobileTopCategories";
 
 export default async function PrivatePage() {
   const supabase = createClient();
@@ -25,7 +26,6 @@ export default async function PrivatePage() {
     redirect("/login");
   }
   const userID = data.user.id;
-  // console.log(data.user.user_metadata);
 
   const expensesLast30 = await getTransactionsExpense({ userId: userID });
   const incomesLast30 = await getTransactionsIncomes({ userId: userID });
@@ -54,17 +54,17 @@ export default async function PrivatePage() {
       <div className="w-full h-full">
         <div className="flex flex-col gap-6 p-4">
           <div className="p-4 mx-4 mt-6">
-            <h1 className="text-5xl font-bold">
+            <h1 className="lg:text-5xl md:text-4xl text-3xl font-bold">
               Welcome,{" "}
               <span className="bg-gradient-to-l  from-teal-400 to-sky-600 text-transparent bg-clip-text">
                 {data.user.user_metadata?.first_name || ""}
               </span>
             </h1>
-            <p className="text-lg">
+            <p className="text-base lg:text-lg">
               Access & manage your account and transactions efficiently.
             </p>
           </div>
-          <div className="flex">
+          <div className="flex md:flex-row flex-col gap-6 md:gap-0">
             <TotalBalnceBox
               totalCurrentBalance={totalCurrentBalance}
               accounts={accountData as Account[]}
@@ -81,6 +81,9 @@ export default async function PrivatePage() {
               transactionsHistoryAllIncomes as Transactions[]
             }
           />
+          <MobileTopCategories
+            transactions={transactionsHistoryAll as Transactions[]}
+          />
           <RecentTransactionBox
             transactions={transactionsHistoryRecent as Transactions[]}
             transactionsExpenses={
@@ -92,7 +95,7 @@ export default async function PrivatePage() {
           />
         </div>
       </div>
-      <div className="basis-96 border-l-2 border-color bg-slate-50 dark:bg-slate-800 relative">
+      <div className="basis-96 border-l-2 border-color bg-slate-50 dark:bg-slate-800 relative hidden 2xl:block">
         <RightSideBar
           user={data.user.user_metadata as User}
           transactions={transactionsHistoryAll as Transactions[]}

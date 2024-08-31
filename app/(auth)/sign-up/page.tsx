@@ -8,10 +8,12 @@ export const metadata: Metadata = {
 
 const page = () => {
   return (
-    <div className="flex flex-col my-auto text-slate-50 max-w-[30rem] mx-auto p-6">
+    <div className="flex flex-col my-auto text-slate-50 w-full md:max-w-[30rem] mx-auto p-6">
       <div className="mb-6 flex flex-col items-center">
-        <h2 className="text-4xl font-bold">Create an account</h2>
-        <p className="text-xl text-slate-200">
+        <h2 className="sm:text-4xl text-3xl mb-2 font-bold">
+          Create an account
+        </h2>
+        <p className="sm:text-xl text-lg text-slate-200">
           Enter your information to get started
         </p>
       </div>

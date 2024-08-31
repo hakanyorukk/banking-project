@@ -20,11 +20,15 @@ const page = async () => {
   return (
     <section className="p-12">
       <div>
-        <h1 className="text-4xl font-bold mb-2">My Bank Accounts</h1>
-        <p className="text-lg">Effortlessly Manage Your Banking Activities</p>
-        <h3 className="mt-6 text-2xl font-bold mb-4">Your cards</h3>
+        <h1 className="sm:text-4xl text-2xl font-bold mb-2">
+          My Bank Accounts
+        </h1>
+        <p className="sm:text-lg text-base">
+          Effortlessly Manage Your Banking Activities
+        </p>
+        <h3 className="mt-6 sm:text-2xl text-xl font-bold mb-4">Your cards</h3>
       </div>
-      <div className="flex gap-8">
+      <div className=" flex-wrap flex md:flex-row flex-col gap-8  place-items-center">
         {accounts?.map((account, index) => (
           <BigCard
             key={index}

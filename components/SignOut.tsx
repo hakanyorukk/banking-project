@@ -24,7 +24,7 @@ const SignOut = () => {
   //{isLoading ? (): ("Sign out")}
   return (
     <Button className="signout justify-start" onClick={() => handleSignout()}>
-      <div className="flex gap-1 items-center text-xl font-medium z-10">
+      <div className="flex gap-1 items-center sm:text-xl text-xs font-medium z-10">
         {isLoading ? (
           <>
             <LuLoader2 size={15} className="animate-spin" /> &nbsp;

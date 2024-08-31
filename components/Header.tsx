@@ -4,6 +4,8 @@ import { FaGithub } from "react-icons/fa";
 import DarkModeToggle from "./DarkModeToggle";
 import ProfileAvatar from "./ProfileAvatar";
 
+import MobileNav from "./MobileNav";
+
 const Header = async () => {
   const supabase = await createClient();
   const {
@@ -14,15 +16,18 @@ const Header = async () => {
   //   return redirect("/login");
   // }
   return (
-    <div className="flex h-fit w-full border-b border-color bg-slate-50 dark:bg-slate-800 dark:text-slate-200 sticky top-0 z-50">
+    <div className="flex h-fit w-full border-b border-color bg-slate-50 dark:bg-slate-800 dark:text-slate-200 sticky top-0 z-50 justify-between">
+      <div className="justify-start flex xl:hidden px-8 ">
+        <MobileNav />
+      </div>
       <nav className="flex w-full justify-end">
-        <ul className="flex gap-8 mr-10 items-center text-2xl font-light py-2 ">
+        <ul className="flex gap-8 mr-10 items-center sm:text-2xl text-xl font-light py-2 ">
           <li>
             <DarkModeToggle />
           </li>
           <li>
             <Link
-              className="text-2xl flex items-center"
+              className="sm:text-2xl text-xl flex items-center"
               href="https://github.com/hakanyorukk"
               target="_blank"
               rel="noopener noreferrer"

@@ -94,7 +94,7 @@ const UpdateUserForm = ({ user }: { user: User }) => {
           placeholder="Enter your email"
           disabled={true}
         />
-        <div className="flex gap-14">
+        <div className="flex sm:flex-row flex-col sm:gap-14 gap-0">
           <UpdateInput
             control={form.control}
             name="first_name"
@@ -115,7 +115,7 @@ const UpdateUserForm = ({ user }: { user: User }) => {
           placeholder="YYYY-MM-DD"
         />
 
-        <div className="flex gap-14">
+        <div className="flex sm:flex-row flex-col sm:gap-14 gap-0">
           <UpdateInput
             control={form.control}
             name="state"
@@ -137,7 +137,7 @@ const UpdateUserForm = ({ user }: { user: User }) => {
           placeholder="Enter your phone number"
         />
 
-        <div className="flex gap-14">
+        <div className="flex sm:flex-row flex-col sm:gap-14 gap-0">
           <UpdateInput
             control={form.control}
             name="city"
@@ -155,7 +155,7 @@ const UpdateUserForm = ({ user }: { user: User }) => {
         <div className="flex gap-4 items-center justify-end my-3">
           <Button
             type="reset"
-            className="text-lg rounded-[.25rem] mt-4 hover:border-2 focus:border-2"
+            className="sm:text-lg text-sm rounded-[.25rem] mt-4 hover:border-2 focus:border-2"
           >
             Cancel
           </Button>

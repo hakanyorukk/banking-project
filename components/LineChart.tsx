@@ -85,14 +85,6 @@ const LineChart = ({
   const data = {
     labels: sorteduniqueMonths,
     datasets: [
-      // {
-      //   label: "Expense:",
-      //   data: totalAmount.reverse(),
-      //   borderColor: colors.borderColor,
-      //   backgroundColor: colors.backgroundColor,
-      //   tension: 0.4,
-      //   fill: "start",
-      // },
       {
         label: "Expenses",
         data: totalExpenses.reverse(),

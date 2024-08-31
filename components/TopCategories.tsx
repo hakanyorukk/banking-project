@@ -42,8 +42,6 @@ const TopCategories = ({ transactions }: { transactions: Transactions[] }) => {
       percentage: ((amount / totalExpenses) * 100).toFixed(2) + "%",
     }));
 
-  console.log(sortedTotalExpensesArray);
-
   return (
     <div>
       {sortedTotalExpensesArray.map((e, index) => (

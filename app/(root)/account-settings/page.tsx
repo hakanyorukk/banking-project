@@ -19,21 +19,23 @@ const page = async () => {
     <section className="flex flex-col text-slate-700 dark:text-slate-50 p-6 h-full">
       <div className="dark:bg-slate-800 bg-slate-50 dark:border-slate-700 border-slate-200 flex flex-col p-6 rounded-[.5rem]">
         <div className="max-w-[70rem]">
-          <div className="flex justify-between pb-4 border-b dark:border-slate-600 border-slate-200">
-            <h2 className="text-2xl font-semibold ">Update your account</h2>
-            <p className="flex place-items-center text-sm">
+          <div className="flex sm:flex-row flex-col gap-2 justify-between pb-4 border-b dark:border-slate-600 border-slate-200">
+            <h2 className="sm:text-2xl text-base font-semibold ">
+              Update your account
+            </h2>
+            <p className="flex place-items-center sm:text-sm text-xs">
               Last sign in at {last_sign_in}
             </p>
           </div>
           {data?.user && (
-            <div className="fle dark:border-slate-700 border-slate-200 mb-6">
+            <div className="flex dark:border-slate-700 border-slate-200 mb-6">
               <UpdateUserForm user={data.user.user_metadata as User} />
             </div>
           )}
-          <h2 className="text-2xl font-semibold border-b dark:border-slate-600 border-slate-200 pb-4">
+          <h2 className="sm:text-2xl text-xl font-semibold border-b dark:border-slate-600 border-slate-200 pb-4">
             Update your password
           </h2>
-          <div className="flex">
+          <div className="flex w-full">
             <UpdatePasswordForm />
           </div>
         </div>

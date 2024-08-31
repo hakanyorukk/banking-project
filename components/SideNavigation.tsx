@@ -44,8 +44,8 @@ const SideNavigation = () => {
   const [isActive, setIsActive] = useState(false);
   const pathname = usePathname();
   return (
-    <nav className="p-4 text-xl">
-      <ul className="flex flex-col gap-4">
+    <nav className="p-4 text-xs md:text-base 2xl:text-xl ">
+      <ul className="flex flex-col sm:gap-4 gap-2">
         {navLinks.map((link) => (
           <li key={link.name}>
             <Link
@@ -54,7 +54,9 @@ const SideNavigation = () => {
                 pathname === link.href ? "sidebar-link_active" : ""
               }`}
             >
-              <div className="text-2xl font-bold z-10">{link.icon}</div>
+              <div className="mg:text-2xl text-base font-bold z-10">
+                {link.icon}
+              </div>
               <span className="z-10">{link.name}</span>
             </Link>
           </li>

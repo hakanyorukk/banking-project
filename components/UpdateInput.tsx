@@ -31,12 +31,14 @@ const UpdateInput = ({
       name={name}
       render={({ field }) => (
         <div className="flex flex-grow place-items-center w-full py-3 border-b dark:border-slate-600 border-slate-200">
-          <FormLabel className="text-lg flex basis-2/5 mr-4">{label}</FormLabel>
+          <FormLabel className="sm:text-lg text-xs flex basis-2/5 mr-4">
+            {label}
+          </FormLabel>
           <div className="flex flex-col w-full">
             <FormControl>
               <Input
                 placeholder={placeholder}
-                className="text-md form-input"
+                className="sm:text-md text-xs form-input"
                 type={name === "password" ? "password" : "text"}
                 {...field}
                 disabled={disabled === true ? disabled : false}

@@ -43,7 +43,7 @@ const BankDropdown = ({
       onValueChange={(value) => handleBankChange(value)}
     >
       <SelectTrigger
-        className={`flex w-[30rem] rounded-[.5rem] gap-2 bg-slate-100 dark:bg-slate-900 dark:border-slate-500 border-slate-200 ${otherStyles}`}
+        className={`flex max-w-[30rem] rounded-[.5rem] gap-2 bg-slate-100 dark:bg-slate-900 dark:border-slate-500 border-slate-200 ${otherStyles}`}
       >
         <CiCreditCard1 className="h-10 w-8" />
 
@@ -51,7 +51,7 @@ const BankDropdown = ({
         <p className="">{formatAmount(selected.balance)}</p>
       </SelectTrigger>
       <SelectContent
-        className={`w-[30rem] rounded-[.5rem] bg-slate-100 dark:bg-slate-900 dark:border-slate-600 border-slate-200`}
+        className={`sm:w-[30rem] w-full rounded-[.5rem] bg-slate-100 dark:bg-slate-900 dark:border-slate-600 border-slate-200`}
         align="end"
       >
         {accounts ? (
