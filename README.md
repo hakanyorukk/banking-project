@@ -4,7 +4,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 A comprehensive bank management system built with Next.js, TypeScript, Supabase, and Tailwind CSS, designed to manage various banking operations such as account management, transaction history, fund transfers, and more.
 
 ### Features
-#### User Authentication: Secure login and registration.
+#### User Authentication: Secure login and registration using Supabase.
 #### Fully Responsive Design: Optimized for all devices.
 #### Dark Mode: Toggle between light and dark themes.
 #### Form Validation: Robust form validation using Zod and React Hook Form for user input management and error handling.
