@@ -4,7 +4,7 @@ import { formatDateString } from "@/lib/utils";
 import { createClient } from "@/utils/supabase/server";
 
 import { Metadata } from "next";
-import React from "react";
+import React, { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Account",
@@ -27,7 +27,7 @@ const page = async () => {
           </div>
           {data?.user && (
             <div className="fle dark:border-slate-700 border-slate-200 mb-6">
-              <UpdateUserForm user={data.user} />
+              <UpdateUserForm user={data.user.user_metadata as User} />
             </div>
           )}
           <h2 className="text-2xl font-semibold border-b dark:border-slate-600 border-slate-200 pb-4">

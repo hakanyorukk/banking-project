@@ -83,6 +83,12 @@ export default async function PrivatePage() {
           />
           <RecentTransactionBox
             transactions={transactionsHistoryRecent as Transactions[]}
+            transactionsExpenses={
+              transactionsHistoryAllExpenses as Transactions[]
+            }
+            transactionsIncomes={
+              transactionsHistoryAllIncomes as Transactions[]
+            }
           />
         </div>
       </div>

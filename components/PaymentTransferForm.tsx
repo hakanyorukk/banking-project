@@ -100,7 +100,10 @@ const PaymentTransferForm = ({
                   {...field}
                   className="rounded-[.5rem] text-slate-500 dark:text-slate-200"
                 /> */}
-                <BankDropdown accounts={accounts} setValue={form.setValue} />
+                <BankDropdown
+                  accounts={accounts || []}
+                  setValue={form.setValue}
+                />
               </FormControl>
 
               <FormMessage />

@@ -34,18 +34,37 @@ const SignUpForm = ({ type }: { type: string }) => {
     //setIsLoading(true);
 
     try {
-      const userData = {
+      const userData: UserMetadata & User = {
         first_name: data.first_name!,
         last_name: data.last_name!,
         address: data.address!,
         city: data.city!,
-        postal_code: data.postal_code!,
         date_of_birth: data.date_of_birth!,
+        postal_code: data.postal_code!,
+        phone: "", // Add the missing 'phone' property
+        state: "", // Add the missing 'state' property
+        email: "", // Add the missing 'email' property
+        userId: "", // Add the missing 'userId' property
+        created_at: "", // Add the missing 'created_at' property
+        password: "", // Add the missing 'password' property
+        user_metadata: {} as UserMetadata, // Update the 'user_metadata' property to match the 'UserMetadata' type
       };
+      // const userData = {
+      //   first_name: data.first_name!,
+      //   last_name: data.last_name!,
+      //   address: data.address!,
+      //   city: data.city!,
+      //   postal_code: data.postal_code!,
+      //   date_of_birth: data.date_of_birth!,
+      // };
       const email = data.email;
       const password = data.password;
       console.log(email, password, userData);
-      await signup({ email, password, userData });
+      await signup({
+        email,
+        password,
+        userData,
+      });
       //setUser(newUser);
     } catch (error) {
       console.log(error);

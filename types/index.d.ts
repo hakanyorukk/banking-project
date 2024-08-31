@@ -21,10 +21,10 @@ declare type User = {
   postal_code: string;
   email: string;
   password: string;
-  user_metadata: UserMetada;
+  user_metadata: UserMetadata;
 };
 
-declare type UserMetada = {
+declare type UserMetadata = {
   first_name: string;
   last_name: string;
   address: string;

@@ -14,24 +14,36 @@ import { updateUser } from "@/lib/user.actions";
 import toast from "react-hot-toast";
 
 const UpdateUserForm = ({ user }: { user: User }) => {
-  console.log(user.user_metadata.first_name);
   const [isLoading, setIsLoading] = useState(false);
+  console.log(user);
+
   const type = "account";
   const formSchema = UpdateFormSchema(type);
 
   //1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    // defaultValues: {
+    //   email: user.email,
+    //   phone: "",
+    //   first_name: user?.user_metadata?.first_name,
+    //   last_name: user.user_metadata?.last_name,
+    //   address: user.user_metadata?.address,
+    //   state: user.user_metadata?.state,
+    //   postal_code: user.user_metadata?.postal_code,
+    //   date_of_birth: user.user_metadata?.date_of_birth,
+    //   city: user.user_metadata?.city,
+    // },
     defaultValues: {
       email: user.email,
-      phone: user.user_metadata.phone,
-      first_name: user.user_metadata.first_name,
-      last_name: user.user_metadata.last_name,
-      address: user.user_metadata.address,
-      state: user.user_metadata.state,
-      postal_code: user.user_metadata.postal_code,
-      date_of_birth: user.user_metadata.date_of_birth,
-      city: user.user_metadata.city,
+      phone: user.phone,
+      first_name: user.first_name,
+      last_name: user.last_name,
+      address: user.address,
+      state: user.state,
+      postal_code: user.postal_code,
+      date_of_birth: user.date_of_birth,
+      city: user.city,
     },
   });
 
@@ -39,8 +51,26 @@ const UpdateUserForm = ({ user }: { user: User }) => {
     setIsLoading(true);
     try {
       await updateUser({
-        user: data,
+        user: {
+          ...user,
+          userId: user.userId,
+          created_at: user.created_at,
+          user_metadata: user.user_metadata,
+          ...data,
+        },
       });
+      // await updateUser({
+      //   user: data,
+      // });
+
+      // await updateUser({
+      //   user: {
+      //     ...user, // spread all user properties
+      //     user_metadata: {
+      //       ...user.user_metadata,
+      //     },
+      //   },
+      // });
       toast.success("Profile successfully updated!");
       //console.log(data);
     } catch (error) {

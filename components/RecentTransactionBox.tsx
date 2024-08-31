@@ -3,7 +3,11 @@
 import Link from "next/link";
 import TransactionsHistory from "./TransactionsHistory";
 
-const RecentTransactionBox = ({ transactions }: TransactionsBoxProps) => {
+const RecentTransactionBox = ({
+  transactions,
+  transactionsExpenses,
+  transactionsIncomes,
+}: TransactionsBoxProps) => {
   return (
     <section className="box-style h-fit">
       <div className="flex items-center justify-between  mb-6">
@@ -15,7 +19,11 @@ const RecentTransactionBox = ({ transactions }: TransactionsBoxProps) => {
           View All
         </Link>
       </div>
-      <TransactionsHistory transactions={transactions} />
+      <TransactionsHistory
+        transactions={transactions}
+        transactionsExpenses={transactionsExpenses}
+        transactionsIncomes={transactionsIncomes}
+      />
     </section>
   );
 };

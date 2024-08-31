@@ -46,6 +46,8 @@ const page = async ({ searchParams }: { searchParams: any }) => {
       <div className="rounded-[0.5rem] dark:bg-slate-800 bg-slate-50 dark:border-slate-700 border-slate-200 border-2 overflow-hidden">
         <TransactionsHistory
           transactions={transactionsHistory as Transactions[]}
+          transactionsExpenses={[]}
+          transactionsIncomes={[]}
         />
       </div>
       <PaginationBox totalPages={totalPages} />

@@ -10,9 +10,9 @@ const ExpensesMonth = ({
   return (
     <div className="box-style flex flex-col h-48 w-full basis-1/3 place-items-center">
       <h2 className="box-title mt-4">Expenses this month</h2>
-      <p className="text-4xl font-bold expense-color">
+      <h3 className="text-4xl font-bold expense-color">
         <AnimatedCounter amount={totalExpenseMonth} />
-      </p>
+      </h3>
     </div>
   );
 };

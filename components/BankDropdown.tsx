@@ -22,7 +22,7 @@ const BankDropdown = ({
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
-  const [selected, setSeclected] = useState(accounts[0]);
+  const [selected, setSeclected] = useState(accounts[0] || []);
   const [activeCard, setActiveCard] = useState(0);
 
   function handleBankChange(id: string): void {
@@ -54,25 +54,29 @@ const BankDropdown = ({
         className={`w-[30rem] rounded-[.5rem] bg-slate-100 dark:bg-slate-900 dark:border-slate-600 border-slate-200`}
         align="end"
       >
-        <SelectGroup>
-          <SelectLabel className="py-2 font-normal">
-            Select a bank to display
-          </SelectLabel>
-          {accounts.map((account: Account) => (
-            <SelectItem
-              key={account.id}
-              value={account.id}
-              className="cursor-pointer border-t  dark:border-slate-600 border-slate-200"
-            >
-              <div className="flex flex-col ">
-                <p className="text-16 font-medium">{account.bank_name}</p>
-                <p className="text-14 font-medium text-cyan-500">
-                  {formatAmount(account.balance)}
-                </p>
-              </div>
-            </SelectItem>
-          ))}
-        </SelectGroup>
+        {accounts ? (
+          <SelectGroup>
+            <SelectLabel className="py-2 font-normal">
+              Select a bank to display
+            </SelectLabel>
+            {accounts.map((account: Account) => (
+              <SelectItem
+                key={account.id}
+                value={account.id.toString()}
+                className="cursor-pointer border-t  dark:border-slate-600 border-slate-200"
+              >
+                <div className="flex flex-col ">
+                  <p className="text-16 font-medium">{account.bank_name}</p>
+                  <p className="text-14 font-medium text-cyan-500">
+                    {formatAmount(account.balance)}
+                  </p>
+                </div>
+              </SelectItem>
+            ))}
+          </SelectGroup>
+        ) : (
+          <p>No account</p>
+        )}
       </SelectContent>
     </Select>
   );
