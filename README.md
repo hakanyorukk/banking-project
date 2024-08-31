@@ -14,7 +14,7 @@ A comprehensive bank management system built with Next.js, TypeScript, Supabase,
 #### Settings: Update user profile and preferences.
 
 
-## Tect Stack: Next.js, Typescript, Tailwind.css, Supabase, Chadcn/ui, zod,  chart.js, react-counup, date-fns, react-icons, react-hot-toast.
+## Tect Stack: Next.js, Typescript, Tailwind.css, Supabase, Chadcn/ui, zod,  chart.js, react-countup, date-fns, react-icons, react-hot-toast.
 ![Screenshot from 2024-08-31 19-18-37](https://github.com/user-attachments/assets/1ed4c4ae-f244-47ef-80f9-5a57ae53bfe3)
 ![Screenshot from 2024-08-31 19-18-26](https://github.com/user-attachments/assets/25449bf3-cdbf-4423-ba7a-0550a0aaabb6)
 ![Screenshot from 2024-08-31 19-18-13](https://github.com/user-attachments/assets/5adc9893-fee6-4303-a2cb-a0615403bf15)
