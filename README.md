@@ -1,6 +1,6 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Not: There are an example email and a password for login pre-populated at the login page.
+Not: An example email and password are pre-populated on the login page for demonstration purposes.
 
 ## Bank Management System
 A comprehensive bank management system built with Next.js, TypeScript, Supabase, and Tailwind CSS, designed to manage various banking operations such as account management, transaction history, fund transfers, and more.
